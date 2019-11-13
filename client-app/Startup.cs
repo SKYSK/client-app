@@ -20,6 +20,8 @@ namespace client_app
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseDefaultFiles(); // Enables default file mapping on the web root.
+            app.UseStaticFiles(); // Marks files on the web root as servable.
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
