@@ -1,5 +1,5 @@
 <template>
-  <div>{{weather}}</div>
+  <div>{{stores}}</div>
 </template>
 
 <script>
@@ -7,14 +7,16 @@
     name: 'Comptest',
     data() {
       return {
-        weather: null
+        title: null,
+        stores: null
       }
     },
     mounted() {
       this.axios
-        .get("https://localhost:44329/weatherforecast")
+        .get("https://localhost:44329/storelist")
         .then((response) => {
-          this.weather = response.data
+          this.title = response.data.title;
+          this.stores = response.data.stores;
         }).catch((error) => {
           console.log(error)
         });
